@@ -1,32 +1,46 @@
 #include <stdio.h>
-
 /**
-  * main - Prints the numbers from 00 to 99
-  *
-  * Return: Always (Success)
-  */
+ * main - Entry point
+ *
+ * Return: Always 0 (Success/correct)
+ */
 int main(void)
+
 {
-	int c, i;
+int left;
+int right;
+int center;
 
-	c = i = '0';
 
-	for (c = '0'; c <= '9'; c++)
-	{
-		for (i = '0'; i <= '9'; i++)
-		{
-			putchar(c);
-			putchar(i);
 
-			if ((c != '9') || (c == '9' && i != '9'))
-			{
-				putchar(',');
-				putchar(' ');
-			}
-		}
-	}
+for (left = 48; left <= 57; left++)
+{
+for (center = left + 1; center <= 57; center++)
+{
+for (right = center + 1 ; right <= 57; right++)
 
-	putchar('\n');
 
-	return (0);
+{
+putchar(left);
+putchar (center);
+putchar (right);
+
+if  ((left == 55) && (center == left + 1) && (right == center + 1))
+{
+break;
+}
+
+putchar(',');
+putchar (' ');
+
+}
+
+}
+
+}
+
+putchar('\n');
+
+return (0);
+
 }
