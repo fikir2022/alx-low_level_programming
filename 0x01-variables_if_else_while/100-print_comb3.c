@@ -1,6 +1,13 @@
+/*
+ * File: 100-print_comb3.c
+ * Auth: Brennan D Baraban
+ */
+
 #include <stdio.h>
+
 /**
- * main - entry point.
+ * main - Prints all possible combinations of two different digits,
+ *        in ascending order, separated by a comma followed by a space.
  *
  * Return: Always 0.
  */
@@ -16,12 +23,14 @@ int main(void)
 			putchar((digit2 % 10) + '0');
 
 			if (digit1 == 8 && digit2 == 9)
-				continue;	
+				continue;
+			
 			putchar(',');
 			putchar(' ');
 		}
 	}
 
 	putchar('\n');
+
 	return (0);
 }
