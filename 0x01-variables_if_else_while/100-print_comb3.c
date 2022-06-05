@@ -1,41 +1,32 @@
-#include <stdio.h>
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success/completed)
- */
-int main(void)
-
+#include<stdio.h>
+#include<string.h>
+#define N 10
+ 
+void print(int *num, int n)
 {
-int number_left;
-int number_right;
-
-
-for (number_left = 48; number_right <= 78; number_left++)
-{
-for (number_right = number_left + 1 ; number_right <= 78; number_right++)
-{
-
-putchar(number_left);
-putchar (number_right);
-
-
-if ((number_left == 56) && (number_right == 78))
-{
-break;
+    int i;
+    for ( i = 0 ; i < n ; i++)
+        printf("%d ", num[i]);
+    printf("\n");
 }
-
-putchar(',');
-putchar (' ');
-
-}
-
-}
-
-putchar('\n');
-
-
-return (0);
-
-
+int main()
+{
+    int num[N];
+    int *ptr;
+    int temp;
+    int i, n, j;
+    printf("\nHow many number you want to enter: ");
+        scanf("%d", &n);
+    printf("\nEnter a list of numbers to see all combinations:\n");
+    for (i = 0 ; i < n; i++)
+        scanf("%d", &num[i]);
+    for (j = 1; j <= n; j++) {
+        for (i = 0; i < n-1; i++) {
+            temp = num[i];
+            num[i] = num[i+1];
+            num[i+1] = temp;
+            print(num, n);
+	}
+    }
+    return 0;
 }
