@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *  _ispper - evaluate if letter is uppercase .
- *  @c: print int
- *  Retuen: Always 0.
+ * _ispper - evaluate if letter is uppercase .
+ *@c: print int
+ * Retuen: Always 0.
  */
 
 int _isupper(int c)
