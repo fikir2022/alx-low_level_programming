@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _ispper - evaluate if letter is uppercase .
+ * _isupper - evaluate if letter is uppercase .
  *@c: print int
  * Retuen: Always 0.
  */
