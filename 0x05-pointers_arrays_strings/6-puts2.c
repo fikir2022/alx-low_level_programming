@@ -1,10 +1,9 @@
 #include "main.h"
 /**
  * puts2 - prints every character of a string
+ *
  * @str: A pointer will be changed to an int 
- *
  * Return: void means the answer is correct 
- *
  */
 
 void puts2(char *str)
