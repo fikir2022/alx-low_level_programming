@@ -6,8 +6,6 @@
  *@m: M pointer
  * Return: void means correct 
  */
-
-
 void swap_int(int *n, int *m)
 {
 int o;
