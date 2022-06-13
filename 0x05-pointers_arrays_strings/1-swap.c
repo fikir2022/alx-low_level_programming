@@ -4,7 +4,7 @@
  * swap_int - swap the values of integers n and m
  *@n: N pointer
  *@m: M pointer
- *Return: void means correct 
+ * Return: void means correct 
  */
 
 void swap_int(int *n, int *m)
