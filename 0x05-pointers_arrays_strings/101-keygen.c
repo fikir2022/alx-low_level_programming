@@ -1,15 +1,36 @@
-#include "main.h"
-#include <stdlib.h>
-#include <time.h>
-#include <stdio.h>
-/**
- */
-int main(void)
-{
-int num;
+#include 
+#include 
+#include 
 
-srand(time(0));
-num = rand();
-printf("%i\n", num);
-return (0);
-}
+int main()
+{
+    char a[10],c[10],d;
+    int i,j,k=0;
+    printf("#Keygen by b44nz0r\n\n");
+    
+    while (k <5 || k >=10)
+    {
+          if (k !=0)
+             printf("\nThe username length should be 5 to 10 alphabets\n");
+        
+         printf("enter username: ");
+         scanf("%s",a);
+         k = strlen(a);
+    }
+    
+    i = k-1;
+    j = 0;
+    
+    while (i >= 0)
+    {
+          c[j] = a[i]+i;
+          i--;
+          j++;
+    }
+    
+    c[j] = 0;
+    printf("\nThe password is %s\n",c);
+    printf("\nHit Enter to Exit\n");
+    getchar();
+    getchar();
+} 
