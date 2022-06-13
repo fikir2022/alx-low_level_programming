@@ -4,6 +4,7 @@
  * @str: A pointer will be changed to an int 
  *
  * Return: void means the answer is correct 
+ *
  */
 
 void puts2(char *str)
