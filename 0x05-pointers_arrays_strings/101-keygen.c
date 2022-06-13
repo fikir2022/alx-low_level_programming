@@ -1,17 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+/**
+ * main - print password.
+ *
+ * Return: 0.
+ */
 
 int main(void)
 {
-  int n;
-  int a[5];
-  int *p;
+	int ascii = 2772, i = 0, j, random;
+	char password[100];
+	time_t t;
 
-  a[2] = 1024;
-  p = &n;
-  /**
-   */
-  *(p + 5) = 98;
-  /* ...so that this prints 98\n */
-  printf("a[2] = %d\n", a[2]);
-  return (0);
-}
+	srand((int) time(&t));
+	while (ascii > 126)
+	{
+		random = rand() % 126;
+		password[i] = random;
+		ascii -= random;
+		i++;
+	}
+	if (ascii > 0)
+		password[i] = ascii;
+	else
+	{
+		i--;
+	}
