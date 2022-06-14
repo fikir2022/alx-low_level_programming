@@ -1,36 +1,20 @@
-#include 
-#include 
-#include 
+#iniclude "main.h"
 
-int main()
+/**
+ *_strlen -length of a string
+ *@s: A pointer that will be changed into int
+ *
+ *Return: void means the answer is correct
+ */
+
+int _strlen(char *s)
 {
-    char a[10],c[10],d;
-    int i,j,k=0;
-    printf("#Keygen by b44nz0r\n\n");
-    
-    while (k <5 || k >=10)
-    {
-          if (k !=0)
-             printf("\nThe username length should be 5 to 10 alphabets\n");
-        
-         printf("enter username: ");
-         scanf("%s",a);
-         k = strlen(a);
-    }
-    
-    i = k-1;
-    j = 0;
-    
-    while (i >= 0)
-    {
-          c[j] = a[i]+i;
-          i--;
-          j++;
-    }
-    
-    c[j] = 0;
-    printf("\nThe password is %s\n",c);
-    printf("\nHit Enter to Exit\n");
-    getchar();
-    getchar();
-} 
+int i;
+
+i = 0;
+while (s[i] != '\0')
+{
+i++;
+}
+return (i);
+}
