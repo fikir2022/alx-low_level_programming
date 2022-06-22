@@ -2,7 +2,7 @@
 /**
  *factorial - factorial of a given number
  *@n: pointer block of memory to fill
- *Return: factorial
+ *Return: factorialiiv
  */
 
 int factorial(int n)
@@ -17,8 +17,3 @@ else
 return (n * factorial(n - 1)); /*Recursive call*/
 
 }
-~
-~
-~
-~
-
