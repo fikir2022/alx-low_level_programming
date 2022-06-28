@@ -1,54 +1,67 @@
+
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+
+void ch_free_grid(char **grid, unsigned int height);
 
 /**
-  * argstostr - convert the params passed to the program to string
-  * @ac: the argument count
-  * @av: the argument vector
-  *
-  * Return: ...
-  */
-char *argstostr(int ac, char **av)
+ * ch_free_grid - frees mem
+ * @grid: param
+ * @height: param
+ */
+void ch_free_grid(char **grid, unsigned int height)
 {
-	int ch = 0, i = 0, j = 0, k = 0;
-	char *s;
+	if (grid != NULL && height != 0)
+	{
+		for (; height > 0; height--)
+			free(grid[height]);
+		free(grid[height]);
+		free(grid);
+	}
+}
 
-	if (ac == 0 || av == NULL)
+/**
+ * strtow - splits string
+ * @str: param
+ * Return: char
+ */
+char **strtow(char *str)
+{
+	char **aout;
+	unsigned int c, height, i, j, a1;
+
+	if (str == NULL || *str == '\0')
 		return (NULL);
-
-	while (i < ac)
+	for (c = height = 0; str[c] != '\0'; c++)
+		if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			height++;
+	aout = malloc((height + 1) * sizeof(char *));
+	if (aout == NULL || height == 0)
 	{
-		while (av[i][j])
-		{
-			ch++;
-			j++;
-		}
-
-		j = 0;
-		i++;
+		free(aout);
+		return (NULL);
 	}
-
-	s = malloc((sizeof(char) * ch) + ac + 1);
-
-	i = 0;
-	while (av[i])
+	for (i = a1 = 0; i < height; i++)
 	{
-		while (av[i][j])
+		for (c = a1; str[c] != '\0'; c++)
 		{
-			s[k] = av[i][j];
-			k++;
-			j++;
+			if (str[c] == ' ')
+				a1++;
+			if (str[c] != ' ' && (str[c + 1] == ' ' || str[c + 1] == '\0'))
+			{
+				aout[i] = malloc((c - a1 + 2) * sizeof(char));
+				if (aout[i] == NULL)
+				{
+					ch_free_grid(aout, i);
+					return (NULL);
+				}
+				break;
+			}
 		}
-
-		s[k] = '\n';
-
-		j = 0;
-		k++;
-		i++;
+		for (j = 0; a1 <= c; a1++, j++)
+			aout[i][j] = str[a1];
+		aout[i][j] = '\0';
 	}
-
-	k++;
-	s[k] = '\0';
-	return (s);
+	aout[i] = NULL;
+	return (aout);
 }
