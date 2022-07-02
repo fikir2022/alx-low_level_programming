@@ -1,29 +1,54 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: n arguments
- * @argv: args
- * Return: int
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
  */
-int main(int argc, char *argv[])
+void simple_print_buffer(char *buffer, unsigned int size)
 {
-unsigned long mul;
-int i, j;
-	if (argc != 3)
-	{ printf("Error\n");
-	exit(98); }
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{  printf("Error\n");
-			exit(98); }
-		}
+	unsigned int i;
 
+	i = 0;
+	while (i < size)
+	{
+		if (i % 10)
+		{
+			printf(" ");
+		}
+		if (!(i % 10) && i)
+		{
+			printf("\n");
+		}
+		printf("0x%02x", buffer[i]);
+		i++;
 	}
-	mul = atol(argv[1]) *atol(argv[2]);
-	printf("%lu\n", mul);
-return (0);
+	printf("\n");
+}
+
+/**
+ * main - check the code.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	char *p;
+	int i;
+
+	p = malloc(sizeof(char) * 10);
+	p = _realloc(p, sizeof(char) * 10, sizeof(char) * 98);
+	i = 0;
+	while (i < 98)
+	{
+		p[i++] = 98;
+	}
+	simple_print_buffer(p, 98);
+	free(p);
+	return (0)i;
 }
