@@ -1,13 +1,12 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
- * print_listint - Print elements of a singly linked list.
+ * listint_len - Calculate the number of elements.
  * @h: Pointer to a list.
  * Return: Integer.
  **/
 
-size_t print_listint(const listint_t *h)
+size_t listint_len(const listint_t *h)
 {
 	const listint_t *temp;
 	unsigned int counter = 0;
@@ -15,7 +14,6 @@ size_t print_listint(const listint_t *h)
 	temp = h;
 	while (temp)
 	{
-		printf("%d\n", temp->n);
 		counter++;
 		temp = temp->next;
 	}
