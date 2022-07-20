@@ -1,5 +1,3 @@
-es (17 sloc)  289 Bytes
-
 #include "lists.h"
 #include <stdlib.h>
 
